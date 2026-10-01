@@ -1,0 +1,163 @@
+{
+  "datasets": [
+    {
+      "checks": {
+        "null_values": 0,
+        "rows": 365,
+        "unique_dates": 365
+      },
+      "description": "Generated daily temperature patterns for testing charts and data clients.",
+      "id": "climate",
+      "row_count": 365,
+      "schema": {
+        "date": "ISO date",
+        "synthetic": "boolean",
+        "unit": "string",
+        "value": "number"
+      },
+      "sha256": {
+        "csv": "ac3aabe0c784d522540634f67a620982edc8b25d833637526ef7aa08415f9458",
+        "json": "0ee8a0d6557bffb3075068c73c6f1b311af7d5edab3d05744bf046e2794dac06"
+      },
+      "title": "Synthetic climate series"
+    },
+    {
+      "checks": {
+        "null_values": 0,
+        "rows": 365,
+        "unique_dates": 365
+      },
+      "description": "Generated daily demand for testing time-series pipelines.",
+      "id": "power",
+      "row_count": 365,
+      "schema": {
+        "date": "ISO date",
+        "synthetic": "boolean",
+        "unit": "string",
+        "value": "number"
+      },
+      "sha256": {
+        "csv": "588e128d4b64cac9439e9c3f269bdae935ad89c10c440c8a45ff1040a8fc7f10",
+        "json": "d86ff88ad0a9924f85ae26300cf1c81dd63717223305ae4e94022330bad5ab4e"
+      },
+      "title": "Synthetic power demand"
+    },
+    {
+      "checks": {
+        "null_values": 0,
+        "rows": 365,
+        "unique_dates": 365
+      },
+      "description": "Generated daily activity index for pagination and forecasting demonstrations.",
+      "id": "mobility",
+      "row_count": 365,
+      "schema": {
+        "date": "ISO date",
+        "synthetic": "boolean",
+        "unit": "string",
+        "value": "number"
+      },
+      "sha256": {
+        "csv": "3af523e15a6cb5c38f86cdb701a5cf185d1a1df307303a74fcc6bd411aa2955e",
+        "json": "e56257645b4017da6f205452bb8d97644eb03f2b22cd2cea0a159ba955a22cb1"
+      },
+      "title": "Synthetic mobility index"
+    },
+    {
+      "checks": {
+        "amount_cents_sum": 172981,
+        "null_notes": 7,
+        "rows": 48,
+        "unique_order_ids": 48
+      },
+      "description": "48 fictional orders for CSV import, integer-money aggregation and nullable text. Includes quoted commas, double quotes and embedded newlines; no personal data.",
+      "id": "orders",
+      "row_count": 48,
+      "schema": {
+        "amount_cents": "integer",
+        "created_at": "RFC 3339 timestamp",
+        "currency": "string",
+        "note": "string | null",
+        "order_id": "string",
+        "status": "string",
+        "synthetic": "boolean"
+      },
+      "sha256": {
+        "csv": "53551a29798277080232915e58d6117481744fd4b02fde642b58184abc42525e",
+        "json": "ea12c85d17ad276bb1f418b0d4013589977f722ea92e30306bb64e9f064bca99"
+      },
+      "title": "Synthetic orders with nulls and Unicode"
+    },
+    {
+      "checks": {
+        "absent_dates": 4,
+        "calendar_days": 60,
+        "null_values": 6,
+        "rows": 56
+      },
+      "description": "56 generated measurements across 60 calendar days. Test resampling while distinguishing absent rows from explicit null values.",
+      "id": "missing-data",
+      "row_count": 56,
+      "schema": {
+        "date": "ISO date",
+        "station": "string",
+        "synthetic": "boolean",
+        "value": "number | null"
+      },
+      "sha256": {
+        "csv": "400907b393044e830a1df9d6b3c50a56907f9ccc7bea3d580e7bf3acbe586f3c",
+        "json": "24245bc560a7d7311c282e03ec075c83dd6e4a9b3136e397c380d9a2d0256ac9"
+      },
+      "title": "Missing dates and nullable measurements"
+    },
+    {
+      "checks": {
+        "duplicate_event_ids": 1,
+        "rows": 6,
+        "unique_event_ids": 5,
+        "unique_utc_timestamps": 3
+      },
+      "description": "A six-row fixture for event deduplication and timestamp normalization. Arrival order differs from event time; one event ID is repeated.",
+      "id": "events",
+      "row_count": 6,
+      "schema": {
+        "event_id": "string",
+        "kind": "string",
+        "occurred_at": "RFC 3339 timestamp",
+        "synthetic": "boolean"
+      },
+      "sha256": {
+        "csv": "87156b166307dd77b04bd42c392672170bce84a71339f34fb337de0ed27773b5",
+        "json": "c1013496d50d61f1461e500292a2f6a4f4c0aed5e409e9b97284ba521d13445e"
+      },
+      "title": "Out-of-order events and time-zone offsets"
+    },
+    {
+      "checks": {
+        "id_max": 103,
+        "id_min": 1,
+        "id_sum": 5356,
+        "last_page_rows_at_limit_20": 3,
+        "pages_at_limit_20": 6,
+        "rows": 103
+      },
+      "description": "An uneven number of records with contiguous IDs. Verify final partial pages, termination, completeness and stable ordering.",
+      "id": "pagination",
+      "row_count": 103,
+      "schema": {
+        "group": "string",
+        "id": "integer",
+        "synthetic": "boolean",
+        "value": "integer"
+      },
+      "sha256": {
+        "csv": "ddfb01b0fb22c7968be675ac3c6e2a66ea35856e61895e85c767fc6b791d306a",
+        "json": "5c87a86b19462a8011d00424a5a34ac9b2008119dfcfde38215cedcfa4c31889"
+      },
+      "title": "103 records for pagination boundary tests"
+    }
+  ],
+  "license": "CC0-1.0",
+  "synthetic": true,
+  "version": "2026-10-01.1"
+}

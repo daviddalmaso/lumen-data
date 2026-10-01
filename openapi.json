@@ -1,0 +1,184 @@
+{
+  "info": {
+    "description": "Deterministic synthetic test fixtures. Read-only public API; no API key required.",
+    "title": "Lumen Data API",
+    "version": "2026-10-01.1"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/fixtures": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "schema": {
+              "maxLength": 120,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Synthetic fixture or metadata"
+          },
+          "404": {
+            "description": "Unknown fixture"
+          },
+          "422": {
+            "description": "Invalid parameter"
+          },
+          "429": {
+            "description": "Rate limit; honor Retry-After"
+          },
+          "503": {
+            "description": "Service unavailable"
+          }
+        },
+        "summary": "List and search fixture metadata"
+      }
+    },
+    "/api/fixtures/{dataset_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "dataset_id",
+            "required": true,
+            "schema": {
+              "enum": [
+                "climate",
+                "power",
+                "mobility",
+                "orders",
+                "missing-data",
+                "events",
+                "pagination"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "default": 0,
+              "maximum": 1000,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 20,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Synthetic fixture or metadata"
+          },
+          "404": {
+            "description": "Unknown fixture"
+          },
+          "422": {
+            "description": "Invalid parameter"
+          },
+          "429": {
+            "description": "Rate limit; honor Retry-After"
+          },
+          "503": {
+            "description": "Service unavailable"
+          }
+        },
+        "summary": "Read a stable page of synthetic records"
+      }
+    },
+    "/downloads/{dataset_id}.{format}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "dataset_id",
+            "required": true,
+            "schema": {
+              "enum": [
+                "climate",
+                "power",
+                "mobility",
+                "orders",
+                "missing-data",
+                "events",
+                "pagination"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "enum": [
+                "csv",
+                "json"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Synthetic fixture or metadata"
+          },
+          "404": {
+            "description": "Unknown fixture"
+          },
+          "422": {
+            "description": "Invalid parameter"
+          },
+          "429": {
+            "description": "Rate limit; honor Retry-After"
+          },
+          "503": {
+            "description": "Service unavailable"
+          }
+        },
+        "summary": "Download all rows as CSV or JSON"
+      }
+    },
+    "/manifest.json": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Synthetic fixture or metadata"
+          },
+          "404": {
+            "description": "Unknown fixture"
+          },
+          "422": {
+            "description": "Invalid parameter"
+          },
+          "429": {
+            "description": "Rate limit; honor Retry-After"
+          },
+          "503": {
+            "description": "Service unavailable"
+          }
+        },
+        "summary": "Get release metadata and SHA-256 checksums"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://lumen-data.daviddalmaso.chatgpt.site"
+    }
+  ]
+}

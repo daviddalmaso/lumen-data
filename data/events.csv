@@ -1,0 +1,7 @@
+event_id,occurred_at,kind,synthetic
+evt-001,2025-01-01T00:00:00Z,opened,true
+evt-002,2024-12-31T19:00:00-05:00,opened,true
+evt-003,2025-01-01T00:02:00Z,closed,true
+evt-002,2024-12-31T19:00:00-05:00,opened,true
+evt-004,2025-01-01T00:01:00Z,updated,true
+evt-005,2025-01-01T01:00:00+01:00,opened,true
