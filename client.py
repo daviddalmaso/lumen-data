@@ -2,7 +2,7 @@
 import json
 from urllib.request import Request, urlopen
 
-ORIGIN = 'https://lumen-data.daviddalmaso.chatgpt.site'
+ORIGIN = 'https://lumenfixtures.com'
 def main():
     items, offset, pages = [], 0, 0
     while offset is not None:
