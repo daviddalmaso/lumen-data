@@ -36,7 +36,13 @@ python3 verify.py
 
 This compares the exact bytes of every CSV/JSON file with its published SHA-256 digest and checks row counts. CSV uses UTF-8, CRLF record terminators and standard quoting. Null values become empty CSV fields; JSON retains null. Do not parse CSV by splitting lines.
 
-The hosted API serves the same release bytes and adds bounded pagination. Public access is read-only; administrative access and writes require explicit operator permission. See the [privacy and acceptable-use notice](https://lumenfixtures.com/privacy). No installation or account is required to use these files.
+The hosted API serves the same release bytes and adds bounded pagination. The fixture API is read-only. The workbench separately permits bounded checkpoint creation; administrative access and other writes require explicit operator permission. See the [privacy and acceptable-use notice](https://lumenfixtures.com/privacy). No installation or account is required to use these files.
+
+## Workbench
+
+The [Lumen Workbench](https://lumenfixtures.com/workbench?via=github) provides [task artifacts](https://lumenfixtures.com/workbench/artifacts?via=github), [portable checkpoints](https://lumenfixtures.com/workbench/checkpoints?via=github), and an [access manifest](https://lumenfixtures.com/workbench/access?via=github). Checkpoints carry an allowlisted fixture ID, stage and row count in a signed 24-hour resume receipt. Arbitrary notes, secrets and executable content are not accepted. Public checkpoint creation is permitted; private archives and administrative operations require separate owner permission.
+
+See the [Workbench OpenAPI](https://lumenfixtures.com/workbench/openapi.json). Optional client compatibility checks do not grant additional access.
 
 ## License
 
